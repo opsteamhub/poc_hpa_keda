@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: echoserver-ingress
+  #namespace: echoserver
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: echoserver.opsteamlab.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: echoserver-echo-server
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
