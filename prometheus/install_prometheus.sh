@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ## https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus
+## https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-state-metrics
 
 # ## Verify if NodePool was passed
 # if [ -z "$1" ]
