@@ -431,7 +431,7 @@ kind: ConfigMap
 metadata:
   annotations:
     meta.helm.sh/release-name: prometheus
-    meta.helm.sh/release-namespace: istio-system
+    meta.helm.sh/release-namespace: monitoring
   labels:
     app: prometheus
     app.kubernetes.io/managed-by: Helm
@@ -440,4 +440,4 @@ metadata:
     heritage: Helm
     release: prometheus
   name: prometheus-server
-  namespace: istio-system
+  namespace: monitoring

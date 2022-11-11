@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # https://github.com/grafana/helm-charts
 
 # Setting variables
-NAMESPACE=istio-system
+NAMESPACE=monitoring
 CHART_NAME=grafana
 GRAFANA_PVC_YAML=grafana_pvc.yaml
 GRAFANA_PVC_CLAIM_NAME=grafana-pvc
@@ -15,7 +15,7 @@ SERVICE_PORT=3000
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 
-# Create namespace istio-system if it not exists
+# Create namespace if it not exists
 kubectl create ns ${NAMESPACE} || true
 
 # Create Grafana PVC

@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Setting variables
-NAMESPACE=istio-system
+NAMESPACE=monitoring
 CHART_NAME=grafana
 PVC_YAML=grafana_pvc.yaml
 

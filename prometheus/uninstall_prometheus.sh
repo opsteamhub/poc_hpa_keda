@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define namespace
-NAMESPACE=istio-system
+NAMESPACE=monitoring
 CHART_NAME=prometheus
 
 # Uninstall Prometheus Helm Chart

@@ -10,26 +10,29 @@
 #  exit 1
 # fi
 
+# NODEPOOL=$1
+
 # Adding Helm Repos
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics
 helm repo update
 
 # Defining namespace
-NAMESPACE=istio-system
-NODEPOOL=$1
+NAMESPACE=monitoring
 
-# Create namespace istio-system if it not exists
+# Create namespace if it not exists
 kubectl create ns ${NAMESPACE} || true
 
 # Install Prometheus Helm Chart
 helm upgrade --install prometheus \
 		--namespace $NAMESPACE \
 		--set forceNamespace=$NAMESPACE \
-		--set server.nodeSelector."cloud\.google\.com/gke-nodepool"=$NODEPOOL \
-		--set kube-state-metrics.nodeSelector."cloud\.google\.com/gke-nodepool"=$NODEPOOL \
 		-f values.yaml \
 		prometheus-community/prometheus
 
+
+# --set server.nodeSelector."cloud\.google\.com/gke-nodepool"=$NODEPOOL \
+# --set kube-state-metrics.nodeSelector."cloud\.google\.com/gke-nodepool"=$NODEPOOL \
+
 # Applying scraping configs
-kubectl -n ${NAMESPACE} apply -f prometheus-configmap.yaml
+#kubectl -n ${NAMESPACE} apply -f prometheus-configmap.yaml
