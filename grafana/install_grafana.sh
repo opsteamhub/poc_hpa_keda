@@ -5,11 +5,8 @@
 # Setting variables
 NAMESPACE=monitoring
 CHART_NAME=grafana
-GRAFANA_PVC_YAML=grafana_pvc.yaml
-GRAFANA_PVC_CLAIM_NAME=grafana-pvc
-IMAGE_REPOSITORY=grafana/grafana
-IMAGE_TAG=7.5.5
-SERVICE_PORT=3000
+PVC_YAML_FILE=grafana_pvc.yaml
+PVC_CLAIM_NAME=grafana-pvc
 
 ## Add Grafana Repo
 helm repo add grafana https://grafana.github.io/helm-charts
@@ -19,17 +16,14 @@ helm repo update
 kubectl create ns ${NAMESPACE} || true
 
 # Create Grafana PVC
-kubectl -n $NAMESPACE apply -f $GRAFANA_PVC_YAML
+kubectl -n ${NAMESPACE} apply -f ${PVC_YAML_FILE}
 
 # Install Grafana Helm Chart
 helm upgrade --install ${CHART_NAME} \
-		--namespace $NAMESPACE \
-		--set namespaceOverride=$NAMESPACE \
-		--set persistence.existingClaim=$GRAFANA_PVC_CLAIM_NAME \
+		--namespace ${NAMESPACE} \
+		--set namespaceOverride=${NAMESPACE} \
+		--set persistence.existingClaim=${PVC_CLAIM_NAME} \
 		--set persistence.enabled=true \
 		--set persistence.type=pvc \
-		--set image.repository=$IMAGE_REPOSITORY \
-		--set image.tag=$IMAGE_TAG \
-		--set service.port=$SERVICE_PORT \
 		-f values.yaml \
 		grafana/grafana
