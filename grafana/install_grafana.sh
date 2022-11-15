@@ -27,3 +27,7 @@ helm upgrade --install ${CHART_NAME} \
 		--set persistence.type=pvc \
 		-f values.yaml \
 		grafana/grafana
+
+
+# How to get secret
+# kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
