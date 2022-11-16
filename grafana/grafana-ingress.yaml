@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: localhost
+  - host: grafana.example.localhost
     http:
       paths:
       - backend:
