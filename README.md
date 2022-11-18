@@ -8,3 +8,5 @@
 Develop Proof of Concept to implement K8s `HPA` using custom Prometheus metrics. Generate a package artifact(Helm Chart) to deploy `KEDA` and create a documentation using `KEDA` to integrate with HPA.
 
 [Keda to deploy a Kubernetes HPA](https://sysdig.com/blog/kubernetes-hpa-prometheus/)
+
+[Keda Examples](https://github.com/turbaszek/keda-example)
