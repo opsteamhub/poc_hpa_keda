@@ -19,6 +19,10 @@ kubectl apply -f nginx/minikube_ingress_svc.yaml
 
 [Install Nginx Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/)
 
+[PromCat.io](https://promcat.io/apps/nginx)
+
+[Nginx Prometheus Exporter](https://github.com/nginxinc/nginx-prometheus-exporter)
+
 #### How to test
 
 Run `minikube tunnel` in a ***separate terminal***( After the addon is enabled, please run `minikube tunnel` and your ingress resources would be available at ***127.0.0.1***)

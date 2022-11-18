@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     prometheus.io/scrape: "true"
-    prometheus.io/port: "10254"
+    prometheus.io/port: "9113"
   labels:
     app.kubernetes.io/component: controller
     app.kubernetes.io/instance: ingress-nginx
@@ -30,7 +30,7 @@ spec:
     protocol: TCP
     targetPort: https
   - name: prometheus
-    port: 10254
+    port: 9113
     targetPort: prometheus
   selector:
     app.kubernetes.io/component: controller

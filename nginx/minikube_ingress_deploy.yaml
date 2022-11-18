@@ -31,7 +31,7 @@ spec:
         app.kubernetes.io/name: ingress-nginx
         gcp-auth-skip-secret: "true"
         prometheus.io/scrape: 'true'
-        prometheus.io/port: '10254'
+        prometheus.io/port: '9113'
     spec:
       containers:
       - args:
@@ -88,7 +88,7 @@ spec:
         - containerPort: 8443
           name: webhook
           protocol: TCP
-        - containerPort: 10254
+        - containerPort: 9113
           name: prometheus
         readinessProbe:
           failureThreshold: 3
@@ -121,16 +121,16 @@ spec:
         - mountPath: /usr/local/certificates/
           name: webhook-cert
           readOnly: true
-      # - name: nginx-exporter
-      #   image: 'nginx/nginx-prometheus-exporter:0.10.0'
-      #   args:
-      #     - '-nginx.scrape-uri=http://localhost/nginx_status'
-      #   resources:
-      #     limits:
-      #       memory: 100Mi
-      #       cpu: 100m
-      #   ports:
-      #       - containerPort: 9113
+      - name: nginx-exporter
+        image: quay.io/sysdig/nginx-exporter:latest
+        args:
+          - "-nginx.scrape-uri=http://localhost:80/nginx_status"
+        resources:
+          limits:
+            memory: 150Mi
+            cpu: 150m
+        ports:
+            - containerPort: 9113
       dnsPolicy: ClusterFirst
       nodeSelector:
         kubernetes.io/os: linux
