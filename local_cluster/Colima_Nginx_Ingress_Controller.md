@@ -6,7 +6,13 @@ Install [Colima](https://github.com/abiosoft/colima)
 
 Then, run `colima start --cpu 4 --memory 6 --kubernetes`
 
-### To export Nginx metrics to Promethus
+After the cluster is up, let's create the standar storage class that soma applications will use:
+
+```sh
+kubectl apply -f standar-storage-class.yaml
+```
+
+### How to export Nginx metrics to Prometheus
 
 Apply the files inside this folder, executing:
 

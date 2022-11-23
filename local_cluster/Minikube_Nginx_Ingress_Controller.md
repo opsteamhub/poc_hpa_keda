@@ -6,7 +6,7 @@ Install [Minikube](https://minikube.sigs.k8s.io/docs/start/)
 
 Then, run `minikube addons enable ingress metrics-server`
 
-### To export Nginx metrics to Promethus
+### To export Nginx metrics to Prometheus
 
 Apply the files inside this folder, executing:
 
