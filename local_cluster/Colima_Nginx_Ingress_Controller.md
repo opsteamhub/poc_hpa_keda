@@ -9,7 +9,7 @@ Then, run `colima start --cpu 4 --memory 6 --kubernetes`
 After the cluster is up, let's create the standar storage class that soma applications will use:
 
 ```sh
-kubectl apply -f standar-storage-class.yaml
+kubectl apply -f standard-storage-class.yaml
 ```
 
 ### How to export Nginx metrics to Prometheus
