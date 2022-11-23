@@ -2,11 +2,11 @@ apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
  name: nginx-scaledobject
- namespace: ingress-nginx
+ namespace: nginx
 spec:
  scaleTargetRef:
    kind: Deployment
-   name: ingress-nginx-controller
+   name: nginx-ingress-nginx-controller
  minReplicaCount: 1
  maxReplicaCount: 5
  cooldownPeriod: 30
