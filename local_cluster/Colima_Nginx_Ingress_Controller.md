@@ -6,11 +6,17 @@ Install [Colima](https://github.com/abiosoft/colima)
 
 Then, run `colima start --cpu 4 --memory 6 --kubernetes`
 
-After the cluster is up, let's create the standar storage class that soma applications will use:
+After the cluster is up, let's create the standard storage class that some applications will use:
 
 ```sh
 kubectl apply -f standard-storage-class.yaml
 ```
+Next step, install Nginx Ingress-controller
+From Nginx folder, run:
+
+```sh
+./install_nginx.sh
+````
 
 ### How to export Nginx metrics to Prometheus
 
