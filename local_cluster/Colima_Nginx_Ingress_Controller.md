@@ -11,12 +11,13 @@ After the cluster is up, let's create the standard storage class that some appli
 ```sh
 kubectl apply -f standard-storage-class.yaml
 ```
+
 Next step, install Nginx Ingress-controller
 From Nginx folder, run:
 
 ```sh
 ./install_nginx.sh
-````
+```
 
 ### How to export Nginx metrics to Prometheus
 
